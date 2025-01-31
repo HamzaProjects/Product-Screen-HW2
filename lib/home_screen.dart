@@ -1,7 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'item.dart';
 
 class HomeScreen extends StatelessWidget {
+  final List<Item> items =[
+    Item(Icons.flash_on_rounded, "Flash Deal"),
+    Item(Icons.add_chart, "Bill"),
+    Item(Icons.gamepad, "Game"),
+    Item(Icons.card_giftcard_outlined, "Gift"),
+    Item(Icons.more_time, "More"),
+    Item(Icons.payments_outlined, "Payment"),
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -140,221 +149,49 @@ class HomeScreen extends StatelessWidget {
                         width: 100,
                         height: 100,
                         color: Colors.transparent,
-                        child: ListView(
+                        child: ListView.separated(
+                          separatorBuilder: (ctx, index){
+                            return SizedBox(width: 11,);
+                          },
                           scrollDirection: Axis.horizontal,
-                          children: [
-                            Container(
-                              width: 60,
-                              height: 80,
-                              child: Column(
-                                spacing: 5,
-                                children: [
-                                  Container(
-                                    width: 60,
-                                    height: 60,
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange.shade500
-                                          .withOpacity(0.3),
-                                      borderRadius: BorderRadius.circular(7),
-                                    ),
-                                    child: Icon(
-                                      Icons.flash_on_rounded,
-                                      color: Colors.orange.shade400,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "Flash Deal",
-                                      style: TextStyle(
-                                        color: Colors.grey.shade700
-                                            .withOpacity(0.9),
-                                        fontWeight: FontWeight.bold,
+                            itemBuilder: (ctx, index){
+                            final item = items[index];
+                              return Container(
+                                width: 60,
+                                height: 80,
+                                child: Column(
+                                  spacing: 5,
+                                  children: [
+                                    Container(
+                                      width: 60,
+                                      height: 60,
+                                      decoration: BoxDecoration(
+                                        color: Colors.orange.shade500
+                                            .withOpacity(0.3),
+                                        borderRadius: BorderRadius.circular(7),
+                                      ),
+                                      child: Icon(
+                                        item.icon,
+                                        color: Colors.orange.shade400,
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                            Container(
-                              width: 60,
-                              height: 80,
-                              child: Column(
-                                spacing: 5,
-                                children: [
-                                  Container(
-                                    width: 60,
-                                    height: 60,
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange.shade500
-                                          .withOpacity(0.3),
-                                      borderRadius: BorderRadius.circular(7),
-                                    ),
-                                    child: Icon(
-                                      Icons.add_chart,
-                                      color: Colors.orange.shade400,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "Bill",
-                                      style: TextStyle(
-                                        color: Colors.grey.shade700
-                                            .withOpacity(0.9),
-                                        fontWeight: FontWeight.bold,
+                                    Expanded(
+                                      child: Text(
+                                        item.text,
+                                        style: TextStyle(
+                                          color: Colors.grey.shade700
+                                              .withOpacity(0.9),
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                            Container(
-                              width: 60,
-                              height: 80,
-                              child: Column(
-                                spacing: 5,
-                                children: [
-                                  Container(
-                                    width: 60,
-                                    height: 60,
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange.shade500
-                                          .withOpacity(0.3),
-                                      borderRadius: BorderRadius.circular(7),
-                                    ),
-                                    child: Icon(
-                                      Icons.gamepad,
-                                      color: Colors.orange.shade400,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "Game",
-                                      style: TextStyle(
-                                        color: Colors.grey.shade700
-                                            .withOpacity(0.9),
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                            Container(
-                              width: 60,
-                              height: 80,
-                              child: Column(
-                                spacing: 5,
-                                children: [
-                                  Container(
-                                    width: 60,
-                                    height: 60,
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange.shade500
-                                          .withOpacity(0.3),
-                                      borderRadius: BorderRadius.circular(7),
-                                    ),
-                                    child: Icon(
-                                      Icons.card_giftcard,
-                                      color: Colors.orange.shade400,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "Daily Gift",
-                                      style: TextStyle(
-                                        color: Colors.grey.shade700
-                                            .withOpacity(0.9),
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                            Container(
-                              width: 60,
-                              height: 80,
-                              child: Column(
-                                spacing: 5,
-                                children: [
-                                  Container(
-                                    width: 60,
-                                    height: 60,
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange.shade500
-                                          .withOpacity(0.3),
-                                      borderRadius: BorderRadius.circular(7),
-                                    ),
-                                    child: Icon(
-                                      Icons.more_time_rounded,
-                                      color: Colors.orange.shade400,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "More",
-                                      style: TextStyle(
-                                        color: Colors.grey.shade700
-                                            .withOpacity(0.9),
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                            Container(
-                              width: 60,
-                              height: 80,
-                              child: Column(
-                                spacing: 5,
-                                children: [
-                                  Container(
-                                    width: 60,
-                                    height: 60,
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange.shade500
-                                          .withOpacity(0.3),
-                                      borderRadius: BorderRadius.circular(7),
-                                    ),
-                                    child: Icon(
-                                      Icons.payments_outlined,
-                                      color: Colors.orange.shade400,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "Payment",
-                                      style: TextStyle(
-                                        color: Colors.grey.shade700
-                                            .withOpacity(0.9),
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                          ],
-                        ),
+                                  ],
+                                ),
+                              );
+                            },
+
+                            itemCount: items.length,
+                        )
                       ),
                     ),
                   ],
@@ -391,112 +228,18 @@ class HomeScreen extends StatelessWidget {
                       child: Container(
                         height: 130,
                         color: Colors.transparent,
-                        child: ListView(
+                        child: ListView.separated(
                           scrollDirection: Axis.horizontal,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.only(left: 20, top: 20),
-                              height: 100,
-                              width: 270,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.shade400.withOpacity(0.8),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                spacing: 4,
-                                children: [
-                                  Text(
-                                    "Smartphone",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  Text(
-                                    "18 Brands",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(left: 20, top: 20),
-                              height: 100,
-                              width: 270,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.shade400.withOpacity(0.8),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                spacing: 4,
-                                children: [
-                                  Text(
-                                    "Smartphone",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  Text(
-                                    "18 Brands",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(left: 20, top: 20),
-                              height: 100,
-                              width: 270,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.shade400.withOpacity(0.8),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                spacing: 4,
-                                children: [
-                                  Text(
-                                    "Smartphone",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  Text(
-                                    "18 Brands",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                          ],
+                            itemBuilder: (context, index) {
+                              return ClipRRect(
+                                child: Image.asset("assets/images/soon.jpg"),
+                                borderRadius: BorderRadius.circular(10),
+                              );
+                            },
+                            separatorBuilder: (context, index) {
+                              return SizedBox(width: 10,);
+                            },
+                            itemCount: 5,
                         ),
                       ),
                     ),
@@ -534,46 +277,18 @@ class HomeScreen extends StatelessWidget {
                       child: Container(
                         height: 150,
                         color: Colors.transparent,
-                        child: ListView(
+                        child: ListView.separated(
                           scrollDirection: Axis.horizontal,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.only(left: 20, top: 20),
-                              height: 150,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.shade400.withOpacity(0.8),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(left: 20, top: 20),
-                              height: 150,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.shade400.withOpacity(0.8),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(left: 20, top: 20),
-                              height: 150,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.shade400.withOpacity(0.8),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 11,
-                            ),
-                          ],
+                          itemBuilder: (context, index) {
+                            return ClipRRect(
+                              child: Image.asset("assets/images/soonSQ.jpg"),
+                              borderRadius: BorderRadius.circular(10),
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return SizedBox(width: 10,);
+                          },
+                          itemCount: 5,
                         ),
                       ),
                     ),
